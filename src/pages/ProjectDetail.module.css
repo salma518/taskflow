@@ -1,0 +1,13 @@
+/* .layout {flex column h-100vh},
+.loading (padding 2rem),
+.main (padding 2rem),
+.header (flex, gap, margin-bottom),
+.dot (16px, border-radius 50%),
+.info (color gris). */
+
+.layout { display: flex; flex-direction: column; height: 100vh; }
+.loading{padding: 2rem;}
+.main{padding: 2rem;}
+.header{display: flex; gap:0.5rem; margin-bottom: 12px;}
+.dot{padding: 16px; border-radius: 50%;}
+.info{color: grey;}
