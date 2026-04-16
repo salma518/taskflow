@@ -8,6 +8,7 @@ import ProjectForm from '../components/ProjectForm';
 import styles from './Dashboard.module.css'; 
 import axios from 'axios';
 import HeaderMUI from '../components/HeaderMUI'; 
+import useProjects from '../hooks/useProjects'; 
   
 interface Project { id: string; name: string; color: string; } 
 interface Column { id: string; title: string; tasks: string[]; } 
@@ -19,6 +20,9 @@ export default function Dashboard() {
   const [columns, setColumns] = useState<Column[]>([]); 
   const [loading, setLoading] = useState(true); 
   const [showForm, setShowForm] = useState(false); 
+  
+  // Dans Dashboard, ajoutez ce test temporaire : 
+  const dangerousName = '<img src=x onerror=alert("HACK")>'; 
   
   // GET — charger les données au montage 
   useEffect(() => { 
@@ -118,6 +122,10 @@ async function renameProject(id: string, newName: string) {
         userName={authState.user?.name} 
         onLogout={() => dispatch({ type: 'LOGOUT' })} 
       /> 
+
+      {/* <p>{dangerousName}</p>  */}
+      {/* <div dangerouslySetInnerHTML={{ __html: dangerousName }} />  */}
+      
       <div className={styles.body}> 
         <Sidebar projects={projects} isOpen={sidebarOpen} onRename={renameProject}  
   onDelete={deleteProject} /> 

@@ -1,25 +1,34 @@
 import { useState, useEffect } from 'react'; 
 import { useNavigate, useLocation, replace } from 'react-router-dom'; 
 import { useAuth } from './AuthContext'; 
- import api from '../../api/axios'; 
-import styles from './Login.module.css'; 
+import api from '../../api/axios'; 
+import styles from './Login.module.css';
+import { useSelector, useDispatch } from 'react-redux'; 
+import { type RootState } from '../../store'; 
+import { loginStart, loginSuccess, loginFailure } from './authSlice';  
   
 export default function Login() { 
   const navigate = useNavigate(); 
   const location = useLocation(); 
-  const { state, dispatch } = useAuth(); 
+  const { state } = useAuth(); 
   const [email, setEmail] = useState(''); 
   const [password, setPassword] = useState(''); 
   
   const from = (location.state as any)?.from || '/dashboard'; 
+
+  const dispatch = useDispatch(); 
   
+  
+  
+
   useEffect(() => { 
     if (state.user) navigate(from,{replace:true});  // BUG: pour ne pas retourner en page login (login s'efface du historique) 
   }, [state.user, navigate, from]); 
   
   async function handleSubmit(e: React.FormEvent) { 
     e.preventDefault(); 
-    dispatch({ type: 'LOGIN_START' }); 
+    // dispatch({ type: 'LOGIN_START' }); 
+     dispatch(loginStart()); 
     try { 
       const { data: users } = await api.get(`/users?email=${email}`); 
       if (users.length === 0 || users[0].password !== password) { 
@@ -27,7 +36,16 @@ export default function Login() {
         return; 
       } 
       const { password: _, ...user } = users[0]; 
-      dispatch({ type: 'LOGIN_SUCCESS', payload: user }); 
+      // Après LOGIN_SUCCESS, créer un faux JWT : 
+      const fakeToken = btoa(JSON.stringify({ 
+        userId: user.id, 
+        email: user.email, 
+        role: 'admin', 
+        exp: Date.now() + 3600000  // expire dans 1h 
+      })); 
+      // dispatch({ type: 'LOGIN_SUCCESS', payload: user }); 
+      // dispatch({ type: 'LOGIN_SUCCESS', payload: { ...user, token: fakeToken } }); 
+      dispatch(loginSuccess({ user, token: fakeToken })); 
     } catch { 
       dispatch({ type: 'LOGIN_FAILURE', payload: 'Erreur serveur' }); 
     } 
