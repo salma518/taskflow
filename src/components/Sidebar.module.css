@@ -50,6 +50,7 @@
   height: 10px;
   border-radius: 50%;
   display: inline-block;
+<<<<<<< HEAD
 }
 
 .item {
@@ -68,3 +69,6 @@
   color: #2e7d32;              /* texte vert foncé */
   font-weight: 600;
 }
+=======
+}
+>>>>>>> ed1864d (TP1)
