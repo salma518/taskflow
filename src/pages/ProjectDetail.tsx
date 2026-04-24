@@ -31,6 +31,7 @@ export default function ProjectDetail() {
         title="TaskFlow" 
         onMenuClick={() => navigate('/dashboard')} 
         // si authState.user est null
+        // ? check si authState.user existe => pour ne pas afficher undefined
         userName={authState.user?.name || ''}  // BUG 2 
         onLogout={() => dispatch({ type: 'LOGOUT' })} 
       /> 

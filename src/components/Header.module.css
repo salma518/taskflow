@@ -3,47 +3,11 @@
   justify-content: space-between;
   align-items: center;
   height: 56px;
+  background-color: #1B8C3E;
+  color: white;
   padding: 0 16px;
-  background-color: #29b054;
-  color: white;
 }
 
-.left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.menuBtn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.menuBtn:hover {
-  opacity: 0.8;
-}
-
-.logo {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0;
-}
-
-.avatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  font-size: 14px;
-  font-weight: 600;
-<<<<<<< HEAD
-}
 
 .right { display: flex; align-items: center; gap: 1rem; } 
 .userName { font-size: 0.9rem; opacity: 0.9; } 
@@ -51,6 +15,3 @@
   color: white; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; 
   font-size: 0.85rem; transition: background 0.2s; } 
 .logoutBtn:hover { background: rgba(255,255,255,0.25); }
-=======
-}
->>>>>>> ed1864d (TP1)

@@ -21,6 +21,7 @@ export default function ProjectForm({
   e.preventDefault();   // pour empecher le rechargement de la page
   onSubmit(name, color); 
 }
+
   return ( 
     <form className={styles.form} onSubmit={handleSubmit}> 
 

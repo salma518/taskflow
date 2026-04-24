@@ -1,5 +1,4 @@
 import styles from './Sidebar.module.css'; 
-<<<<<<< HEAD
 import { NavLink } from 'react-router-dom'; 
 
 interface Project { id: string; name: string; color: string; } 
@@ -10,18 +9,11 @@ interface SidebarProps { projects: Project[];
  } 
   
 export default function Sidebar({ projects, isOpen, onRename, onDelete }: SidebarProps) { 
-=======
-  
-interface Project { id: string; name: string; color: string; } 
-interface SidebarProps { projects: Project[]; isOpen: boolean; } 
-  
-export default function Sidebar({ projects, isOpen }: SidebarProps) { 
->>>>>>> ed1864d (TP1)
+  console.log('Sidebar re-render');
   return ( 
     <aside className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}> 
       <h2 className={styles.title}>Mes Projets</h2> 
       <ul className={styles.list}> 
-<<<<<<< HEAD
       {projects.map(p => (
   <li key={p.id} className={styles.projectItem}>
     <NavLink
@@ -59,14 +51,6 @@ export default function Sidebar({ projects, isOpen }: SidebarProps) {
     )}
   </li>
 ))}
-=======
-        {projects.map(p => ( 
-          <li key={p.id} className={styles.item}> 
-            <span className={styles.dot} style={{ background: p.color }} /> 
-            {p.name} 
-          </li> 
-        ))} 
->>>>>>> ed1864d (TP1)
       </ul> 
     </aside> 
   ); 
