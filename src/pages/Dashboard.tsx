@@ -7,6 +7,7 @@ import Sidebar from '../components/Sidebar';
 import MainContent from '../components/MainContent'; 
 import ProjectForm from '../components/ProjectForm';
 import styles from './Dashboard.module.css'; 
+<<<<<<< HEAD
 import axios from 'axios'
 import HeaderMUI from '../components/HeaderMUI';
 
@@ -18,6 +19,10 @@ import { type RootState } from '../store';
 import { logout} from '../features/auth/authSlice';
 import { useCallback, memo } from 'react';
 
+=======
+import axios from 'axios';
+import HeaderMUI from '../components/HeaderMUI'; 
+>>>>>>> 932eaa45c7b0b714a31085577c5e1b18dd0d9866
   
 // interface Project { id: string; name: string; color: string; } 
 // interface Column { id: string; title: string; tasks: string[]; } 
@@ -146,6 +151,7 @@ const [saving, setSaving] = useState(false);
   return ( 
     
     <div className={styles.layout}> 
+<<<<<<< HEAD
     {/* Affichez-le dans le JSX :  */}
       {/* <p>{dangerousName}</p> */}
       {/* source externe */}
@@ -153,6 +159,9 @@ const [saving, setSaving] = useState(false);
       {/* <div dangerouslySetInnerHTML={{ __html: dangerousName }} />  */}
 
       <HeaderBS
+=======
+      <HeaderMUI 
+>>>>>>> 932eaa45c7b0b714a31085577c5e1b18dd0d9866
         title="TaskFlow" 
         onMenuClick={() => setSidebarOpen(p => !p)} 
         userName={user?.name} 

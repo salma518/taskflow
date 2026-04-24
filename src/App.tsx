@@ -60,19 +60,29 @@
 // ); 
 // }
 import { Routes, Route, Navigate } from 'react-router-dom'; 
+<<<<<<< HEAD
 import LoginMUI from './features/auth/LoginMUI';
 import LoginBS from './features/auth/LoginBS';
 // import Login from './features/auth/Login_Login'
 import Login from './features/auth/Login_Login';
+=======
+// import Login from './features/auth/Login'; 
+>>>>>>> 932eaa45c7b0b714a31085577c5e1b18dd0d9866
 import Dashboard from './pages/Dashboard'; 
 import ProjectDetail from './pages/ProjectDetail'; 
 import ProtectedRoute from './components/ProtectedRoute'; 
+// import LoginMUI from './features/auth/LoginMUI'; 
+import LoginBS from './features/auth/Login';
   
 export default function App() { 
   return ( 
     <Routes> 
+<<<<<<< HEAD
       <Route path="/login" element={<Login />} /> 
 
+=======
+      <Route path="/login" element={<LoginBS />} /> 
+>>>>>>> 932eaa45c7b0b714a31085577c5e1b18dd0d9866
       <Route path="/dashboard" element={ 
         <ProtectedRoute><Dashboard /></ProtectedRoute> 
       } /> 
